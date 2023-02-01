@@ -18,7 +18,6 @@ time.sleep(2)
 def hangman(randwrd):
 	count = 0
 	randwrd = random.choice(randlist)
-	print(randwrd)
 	limit = 5
 	display = "_" * len(randwrd)
 	guessed = []
@@ -90,19 +89,20 @@ def hangman(randwrd):
 				
 		if "_" not in display:
 			print(f"\nWooHoo! You won the guess word is : {randwrd}")
+			print(f"You indentified the guess word in {count}/{limit} chances")
 			print("\nauthor : @dattu")
 			break
 			
 	again()
 
 def again():
+	ask = input("\nDo you want to play again(y/n) : ").lower()
 	while ask not in ["y","yes","no","n"]:
 		ask = input("\nDo you want to play again(y/n) : ").lower()
-		if ask in ["no","n"]:
-			print("\nOkay thanks for playing the game !!")
-			print("Hope you liked it!")
-			break
-		elif ask in ["y","yes"]:
-			hangman(randwrd)
+	if ask in ["no","n"]:
+		print("\nOkay thanks for playing the game !!")
+		print("Hope you liked it!")
+	elif ask in ["y","yes"]:
+		hangman(randwrd)
 		
 hangman(randwrd)
