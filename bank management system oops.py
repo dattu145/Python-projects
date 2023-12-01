@@ -106,9 +106,6 @@ class Bank:
         if not user_found:
             print(colored("Such user doesn't exist or Incorrect accNO","red"))
             		
-            			
-    def set_acc(self,acc):
-        self.acc = acc
 
     def show_details(self):
         accNo = int(input("Enter acount number : ").strip())
