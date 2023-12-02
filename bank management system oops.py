@@ -2,6 +2,11 @@ import pickle
 import os
 from termcolor import colored
 
+filename = 'BankUsers'
+if filename not in os.listdir(os.getcwd()):
+	with open(filename,'wb') as file:
+		pickle.dump([],file)
+
 class users:
     def __init__(self,name,acc):
         self.name = name
@@ -133,8 +138,8 @@ class Bank:
     	self.userlist.clear()
     	print(colored("Data cleared successfully!","green"))
 
-vignesh = Bank()
-vignesh.read_data()
+bank= Bank()
+bank.read_data()
 
 def wrapper():
     while True:
@@ -143,31 +148,31 @@ def wrapper():
         if choice == 1:
             name = input("Enter holder name : ")
             acc = int(input("Enter acc number : ").strip())
-            vignesh.create_acc(name, acc)
-            vignesh.write_data()
+            bank.create_acc(name, acc)
+            bank.write_data()
         elif choice == 2:
             amt = int(input("Enter amount to be deposited : ").strip())
-            vignesh.deposit(amt)
-            vignesh.write_data()
+            bank.deposit(amt)
+            bank.write_data()
         elif choice == 3:
             amt = int(input("Enter amount to be withdrawn : ").strip())
-            vignesh.withdraw(amt)
-            vignesh.write_data()
+            bank.withdraw(amt)
+            bank.write_data()
         elif choice == 4:
-            vignesh.view_balance()
+            bank.view_balance()
         elif choice == 5:
-            vignesh.view_all_users()
+            bank.view_all_users()
         elif choice == 6:
-        	vignesh.show_details()
+        	bank.show_details()
         elif choice == 7:
-            vignesh.Remove_account()
-            vignesh.write_data()
+            bank.Remove_account()
+            bank.write_data()
         elif choice == 8:
-        	vignesh.reset_data()
-        	vignesh.write_data()
+        	bank.reset_data()
+        	bank.write_data()
         elif choice == 9:
-        	vignesh.change_user_details()
-        	vignesh.write_data()
+        	bank.change_user_details()
+        	bank.write_data()
         elif choice == 0:
             print(colored("\nFelt Great Serving U, Visit Once Again!","light_magenta"))
             break
